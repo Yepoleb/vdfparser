@@ -16,7 +16,7 @@ typedef unsigned int UINT;
 
 void ToLowerCase(char *src, char *dest);
 
-enum
+enum VDF_MOVEPOS
 {
     VDF_MOVEPOS_AFTER = 0,
     VDF_MOVEPOS_BEFORE
@@ -77,7 +77,7 @@ public:
     static VDFNode  *GetNextNode     (VDFNode *Node);
     static size_t   CountBranchNodes (VDFNode *refNode);
     static size_t   GetNodeLevel     (VDFNode *Node);
-    void            MoveToBranch     (VDFNode *anchorNode, VDFNode *moveNode, UINT position);
+    void            MoveToBranch     (VDFNode *anchorNode, VDFNode *moveNode, VDF_MOVEPOS position);
     void            MoveAsChild      (VDFNode *parentNode, VDFNode *moveNode);
 
 protected:
@@ -249,7 +249,5 @@ public:
     ParseForward    **parseForward;
 
 };
-
-
 
 #endif //VDFPARSER_H

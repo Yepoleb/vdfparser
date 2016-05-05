@@ -477,9 +477,9 @@ void VDFTree::MoveAsChild(VDFNode *parentNode, VDFNode *moveNode)
  *  Moves a node to other branch.
  *  @param  refNode     Reference node.
  *  @param  moveNode    Node to be moved.
- *  @param  byNumber    If true keys/values are considered as numbers (integers) for sorting.
+ *  @param  position    Position of the moved node.
 */
-void VDFTree::MoveToBranch(VDFNode *refNode, VDFNode *moveNode, UINT position)
+void VDFTree::MoveToBranch(VDFNode *refNode, VDFNode *moveNode, VDF_MOVEPOS position)
 {
     VDFNode *targetPrevious;
     VDFNode *targetNext;
@@ -907,8 +907,8 @@ bool VDFTreeParser::ParseVDF(const char *filename, ParseForward *pFW)
 /**
  *  Opens an existing vdf file
  *
- *  @param  char*       Name of the vdf file
- *  @param  VDFTree**   The vdf tree will be built into this object.
+ *  @param  filename    Name of the vdf file
+ *  @param  vdfTree     The vdf tree will be built into this object.
  *  @return             Returns true if succeeded.
  */
 bool VDFTreeParser::OpenVDF(const char *filename, VDFTree **vdfTree, OpenForward *openFW)
@@ -1038,8 +1038,8 @@ bool VDFTreeParser::OpenVDF(const char *filename, VDFTree **vdfTree, OpenForward
 /**
  *  Saves a VDF file
  *
- *  @param  char*       Name of target file
- *  @param  VDFTree*    VDFTree object source
+ *  @param  filename    Name of target file
+ *  @param  vdfTree     VDFTree object source
  */
 bool VDFTreeParser::SaveVDF(const char *filename, VDFTree *vdfTree)
 {
@@ -1252,7 +1252,7 @@ void VDFSearch::MarkAnchor(VDFNode *anchor)
 
 /**
  *  Gets the 'anchor' on heap on a specified level.
- *  @param  unsigned int    Target level.
+ *  @param  level    Target level.
  *  @return The anchor node or NULL if it's an invalid level or
  *          the slot is empty.
  */
@@ -1281,7 +1281,7 @@ bool VDFSearch::Walk(UINT direction)
 
 /**
  *  Checks if a node matches with the current search.
- *  @param  VDFNode*    Node to compare.
+ *  @param  matchNode   Node to compare.
  *  @return             true if it matches.
  */
 bool VDFSearch::Match(VDFNode *matchNode)
@@ -1327,7 +1327,7 @@ bool VDFSearch::Match(VDFNode *matchNode)
  *  @param  flags       Default search is for key case sensitive,
  *                      might be changed by setting:<br><code>
  *                      VDF_MATCH_VALUE </code><br>and<code>
- *                      VDF_IGNORE_CASE
+ *                      VDF_IGNORE_CASE</code>
  *  @param  level       Level in which search will be valid. When -1 (default)
  *                      all levels match.
  */
@@ -1546,7 +1546,7 @@ void VDFCollection::SetSearch(VDFSearch *search, VDFTree *tree, char *searchStr,
 
 /**
  *  Removes a search from list
- *  param   @index  Index of the search to be removed.
+ *  @param   index  Index of the search to be removed.
  */
 void VDFCollection::RemoveSearch(const UINT index)
 {
@@ -1577,9 +1577,9 @@ void VDFCollection::RemoveTree(VDFTree **tree)
 
 /**
  *  Get a contatiner by its index
- *  @param  unsigned int    Target index
- *  @return                 The container or null if it's been deleted
- *                          or if index is out of bounds.
+ *  @param  index     Target index
+ *  @return           The container or null if it's been deleted
+ *                    or if index is out of bounds.
  */
 VDFEnum *VDFCollection::GetContainerById(const UINT index)
 {
