@@ -1,0 +1,14 @@
+# CodeLite project files
+.codelite
+*.project
+*.workspace
+*.mk
+vdfparser.txt
+
+Makefile
+Debug
+Release
+
+# Build directory
+build
+
