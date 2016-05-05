@@ -1,5 +1,5 @@
-#ifndef __VDFPARSER_H__
-#define __VDFPARSER_H__
+#ifndef VDFPARSER_H
+#define VDFPARSER_H
 
 #include <stdlib.h>
 
@@ -252,4 +252,4 @@ public:
 
 
 
-#endif //__VDFPARSER_H__
+#endif //VDFPARSER_H
