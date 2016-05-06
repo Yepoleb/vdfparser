@@ -5,11 +5,11 @@
 *.mk
 .build-*
 vdfparser.txt
-
 Makefile
+
+# Build directories
 Debug
 Release
-
-# Build directory
 build
+docs
 
