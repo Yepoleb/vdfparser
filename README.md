@@ -1,6 +1,6 @@
 # vdfparser
 
-Slightly reworked VDF parser from the [vdfparser] AmxModx by commonbullet.
+Slightly reworked [VDF] parser from the [vdfparser] AmxModx by commonbullet.
 
 ## Including in CMake projects
 
@@ -11,4 +11,9 @@ Slightly reworked VDF parser from the [vdfparser] AmxModx by commonbullet.
 
 Run doxygen in the root directory and open `docs/html/annotated.html`
 
+## License
+
+GPLv2
+
 [vdfparser]: https://code.google.com/archive/p/vdfparser/
+[VDF]: https://developer.valvesoftware.com/wiki/KeyValues
